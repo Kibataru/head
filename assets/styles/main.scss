@@ -1,4 +1,4 @@
-@import "@/assets/styles/font";
+@use "@/assets/styles/font.scss" as *;
 
 body {
   font-family: var(--second);
