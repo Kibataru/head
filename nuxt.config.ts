@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@/assets/styles/font.scss";`
+          additionalData: `@use "@/assets/styles/font.scss" as *;`
         }
       }
     }
