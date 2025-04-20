@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
-$font-prim: 'Montserrat', sans-serif;
-$font-second: 'Open Sans', sans-serif;
-
-:root {
-  --first: 'Montserrat', sans-serif; 
-  --second: 'Open Sans', sans-serif;
-}
+@import "@/assets/styles/font";
 
 body {
   font-family: var(--second);
