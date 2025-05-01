@@ -15,9 +15,9 @@
     background-color: #029F59;
     border: 0px;
     color: #FFFFFF;
+    font-family: Monserrat, sans-serif;
   
     .p{
-      font-family: var(--first);
       font-size: 14px;
       line-height: 100%;
       letter-spacing: 0.15px;
