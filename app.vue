@@ -1,21 +1,39 @@
 <template>
   <div class="root">
     <Header />
-    <main class="content">
-      <Main />
-    </main>
+
     <Footer />
   </div>
 </template>
 
+<script setup>
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+</script>
+
 <style>
 .root {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header"
+    "main"
+    "footer";
   min-height: 100vh;
+  height: 100%;
+}
+
+
+
+.header {
+  grid-area: header;
 }
 
 .content {
-  flex: 1 0 auto;
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
 }
 </style>

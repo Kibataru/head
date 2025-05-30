@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer-top">
-      <img class="logo" src="@/assets/images/Frame.png" alt="Логотип">
+      <img class="logo" src="@/assets/images/Frame.png">
       
       <div class="links">
         <NuxtLink to="/projects">Реализованные проекты</NuxtLink>
@@ -26,7 +26,6 @@
         <div class="but"><Button /></div>
     </div>
     
-
     <div class="footer-bottom">
       <p>© Загдом, 2021</p>
       <div class="legal">
@@ -38,44 +37,45 @@
 </template>
 
 <style>
-
-
 .footer {
   background: #254741;
   color: white;
-  padding: 40px 88px 0;
+  padding: 5%;
+  grid-row: 3;
   font-family: 'Open Sans', sans-serif;
 }
 
+
 .footer-top {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 30px;
   padding-bottom: 40px;
 }
 
 .logo {
   height: 40px;
-  margin-left: 40px;
+  width: auto;
+  max-width: 230px;
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-
-.links a {
-  color: white;
-  text-decoration: none;
+  gap: 24px;
+  min-width: 200px;
 }
 
 .contacts {
   display: flex;
   flex-direction: column;
+  font-family: 'Monserrat', sans-serif;
+  font-size: 14px;
   gap: 24px;
 }
 
-.contact {
+.contacts .contact {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -83,25 +83,53 @@
 
 .footer-bottom {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  padding: 20px 0;
+  align-items: center;
+  font-size: 14px;
+  opacity: 60%;  
 }
 
 .legal {
   display: flex;
-  gap: 150px;
-  margin-right: 350px;
-
+  gap: 180px;
+  flex-wrap: wrap;
 }
 
-.but {
-  margin-right: 45px;
 
+@media (max-width: 1024px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .links, .contacts {
+    min-width: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+
+  .legal {
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
 }
 
-.legal a {
-  color: white;
-  text-decoration: none;
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px 30px;
+  }
+  .legal {
+    gap: 10px;
+  }
+  .legal a {
+    text-align: left;
+  }
 }
-
 </style>

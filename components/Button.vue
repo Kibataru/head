@@ -15,7 +15,8 @@
     background-color: #029F59;
     border: 0px;
     color: #FFFFFF;
-    font-family: Monserrat, sans-serif;
+    font-family: 'Monserrat', sans-serif;
+    font-size: 14px;
   
     .p{
       font-size: 14px;
