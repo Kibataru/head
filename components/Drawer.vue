@@ -2,7 +2,7 @@
   <div v-if="isOpen" class="drawer-overlay" @click.self="closeDrawer">
     <div class="drawer-content">
       <button @click="closeDrawer" class="drawer-close-button">
-        <img src="@/assets/images/close.png">
+        <img src="@/assets/images/close.png" alt="Закрыть">
       </button>
 
       <nav class="drawer-nav">
@@ -13,15 +13,15 @@
 
       <div class="drawer-contacts">
         <div class="drawer-contact">
-          <img src="@/assets/images/telephone-white.png">
+          <img src="@/assets/images/telephone-white.png" alt="Телефон">
           <a>+7 (900) 900-90-90</a>
         </div>
         <div class="drawer-contact">
-          <img src="@/assets/images/email-white.png">
+          <img src="@/assets/images/email-white.png" alt="Email">
           <a>info@gmail.com</a>
         </div>
         <div class="drawer-contact">
-          <img src="@/assets/images/place-white.png">
+          <img src="@/assets/images/place-white.png" alt="Адрес">
           <a>
             г. Владивосток<br />ул. Выселковая 49, стр. 3
           </a>
@@ -56,7 +56,6 @@ watch(() => props.isOpen, (val) => {
 </script>
 
 
-
 <style>
 .drawer-overlay {
   position: fixed;
@@ -80,7 +79,6 @@ watch(() => props.isOpen, (val) => {
   background: none;
   border: none;
   align-self: flex-end;
-  cursor: pointer;
 }
 
 .drawer-close-button img {
@@ -92,6 +90,7 @@ watch(() => props.isOpen, (val) => {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-bottom: auto;
 }
 
 .drawer-nav a {
@@ -105,9 +104,9 @@ watch(() => props.isOpen, (val) => {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 378px;
+  margin-top: auto; 
   padding-top: 20px;
-  font-family: 'Monserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .drawer-contact {
@@ -121,7 +120,7 @@ watch(() => props.isOpen, (val) => {
   height: 20px;
 }
 
-.drawer-contact span {
+.drawer-contact a {
   color: white;
   font-size: 14px;
 }

@@ -2,6 +2,7 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/main.scss'],
 
   modules: [
+    'nuxt-swiper',
     ['@nuxtjs/google-fonts', {
       families: {
         'Open Sans': [400, 700],
