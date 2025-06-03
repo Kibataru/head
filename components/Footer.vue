@@ -47,20 +47,23 @@
 
 
 .footer-top {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas:
+    "logo links contacts";
+  grid-template-columns: auto 1fr 1fr auto;
   gap: 30px;
   padding-bottom: 40px;
 }
 
 .logo {
+  grid-area: logo;
   height: 40px;
   width: auto;
   max-width: 230px;
 }
 
 .links {
+  grid-area: links;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -68,12 +71,14 @@
 }
 
 .contacts {
+  grid-area: contacts;
   display: flex;
   flex-direction: column;
   font-family: 'Monserrat', sans-serif;
   font-size: 14px;
   gap: 24px;
 }
+
 
 .contacts .contact {
   display: flex;
@@ -99,13 +104,17 @@
 
 @media (max-width: 1024px) {
   .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
+    grid-template-areas:
+      "logo"
+      "links"
+      "contacts";
+    grid-template-columns: 1fr;
   }
+
   .links, .contacts {
     min-width: auto;
   }
+
 
   .footer-bottom {
     flex-direction: column;
@@ -123,7 +132,11 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 30px 20px 30px;
+    grid-template-areas:
+      "logo"
+      "links"
+      "contacts";
+    grid-template-columns: 1fr;
   }
   .legal {
     gap: 10px;
