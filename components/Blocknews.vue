@@ -37,7 +37,7 @@ defineProps({
 
   &-date {
     margin: 16px 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-accent;
     font-size: 14px;
     font-weight: 400;
     line-height: 120%;
@@ -45,14 +45,14 @@ defineProps({
 
   &-title {
     margin-bottom: 8px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-accent;
     font-size: 20px;
     font-weight: 700;
     line-height: 120%;
   }
 
   &-text {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-main;
     font-size: 16px;
     font-weight: 400;
     line-height: 120%;

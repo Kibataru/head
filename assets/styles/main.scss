@@ -1,9 +1,21 @@
-@use "@/assets/styles/font.scss" as *;
+@use "@/assets/styles/mixins.scss" as *;
+@use "@/assets/styles/variables.scss" as *;
 
-body {
-  font-family: var(--second);
+h1, h2, h3 {
+  font-family: $font-main;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--first);
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent, #029F59);
 }

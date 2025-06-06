@@ -1,8 +1,13 @@
 <template>
   <div class="project__card">
     <picture class="project__card-picture">
-      <source :srcset="`${image_landscape.x2} 2x, ${image_landscape.x1}`" media="(min-width: 1189px)" />
-      <source :srcset="`${image_portrait.x2} 2x`" />
+      <source
+        :srcset="`${image_landscape.x2} 2x, ${image_landscape.x1}`"
+        media="(min-width: 1189px)"
+      />
+      <source
+        :srcset="`${image_portrait.x2} 2x, ${image_portrait.x1}`"
+      />
       <img :src="image_portrait.x1" alt="Project Image" />
     </picture>
     <div class="project__card-info">
@@ -36,13 +41,12 @@ defineProps({
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 32px;
-    padding-right: 16px;
+    padding: 32px 16px 32px 32px;
     width: 50%;
   }
 
   &-title {
-    font-family:'Montserrat', sans-serif;
+    font-family: $font-accent;
     font-size: 20px;
     font-weight: 700;
     line-height: 120%;
@@ -50,7 +54,7 @@ defineProps({
   }
 
   &-text {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-main;
     font-size: 16px;
     font-weight: 400;
     line-height: 135%;
@@ -67,7 +71,7 @@ defineProps({
   }
 }
 
-@media (max-width: 1189px) {
+@include desktop {
   .project__card {
     flex-direction: column;
 
@@ -78,7 +82,7 @@ defineProps({
   }
 }
 
-@media (max-width: 576px) {
+@include mobile {
   .project__card {
     min-width: 90%;
     max-width: 90%;

@@ -78,7 +78,7 @@ const projects = [
 }
 
 .projects__title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-accent;
     font-weight: 700;
     font-size: 38px;
     line-height: 120%;

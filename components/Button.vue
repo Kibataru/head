@@ -40,7 +40,7 @@ const openModal = ref(false)
   background-color: #029F59;
   border: none;
   color: #fff;
-  font-family: 'Monserrat', sans-serif;
+  font-family: $font-accent;
   font-size: 14px;
   cursor: pointer;
   display: flex;
@@ -77,14 +77,14 @@ const openModal = ref(false)
 }
 
 .modal-title {
-  font-family: 'Monserrat', sans-serif;
+  font-family: $font-accent;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 16px;
 }
 
 .modal-text {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-main;
   font-size: 16px;
 }
 

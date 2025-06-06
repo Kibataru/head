@@ -59,6 +59,9 @@ const news = [
 </script>
 
 <style scoped lang="scss">
+@use "@/assets/styles/variables.scss" as *;
+@use "@/assets/styles/mixins.scss" as *;
+
 .news {
   padding-top: 80px;
   padding-bottom: 60px;
@@ -69,6 +72,15 @@ const news = [
     max-width: 100%;
     margin: 0 auto;
     padding: 0 0;
+
+    @include tablet {
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    @include mobile {
+      padding: 0 16px;
+    }
   }
 
   .news__header {
@@ -78,7 +90,7 @@ const news = [
     margin-bottom: 32px;
 
     &-title {
-      font-family: 'Montserrat', sans-serif;
+      font-family: $font-accent;
       font-size: 38px;
       font-weight: 700;
       line-height: 120%;
@@ -88,12 +100,22 @@ const news = [
       color: #029f59;
       border: 1px solid #029f59;
       background-color: #ffffff;
-      font-family: 'Montserrat', sans-serif;
+      font-family: $font-accent;
       font-size: 14px;
       font-weight: 600;
       border-radius: 10px;
       padding: 16px 24px;
       white-space: nowrap;
+    }
+
+    @include mobile { 
+      align-items: flex-start;
+      gap: 16px;
+      flex-direction: column;
+
+      &-button {
+        align-self: flex-start;
+      }
     }
   }
 
@@ -102,25 +124,13 @@ const news = [
     grid-template-columns: repeat(4, 304px);
     gap: 16px;
 
-    @media (max-width: 1024px) {
+    @include tablet { 
       display: flex;
       overflow-x: auto;
       gap: 16px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       padding-bottom: 4px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    &__header {
-      align-items: flex-start;
-      gap: 0px;
-      margin-right: 5px;
-
-      &-button {
-        align-self: flex-start;
-      }
     }
   }
 }

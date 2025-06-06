@@ -1,0 +1,142 @@
+@use "sass:meta";
+@use "@/assets/styles/variables.scss" as *;
+
+@mixin desktop {
+  @media (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin hide-on($breakpoint) {
+  @if $breakpoint == desktop {
+    @media (max-width: $breakpoint-desktop) {
+      display: none !important;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $breakpoint-tablet) {
+      display: none !important;
+    }
+  } @else if $breakpoint == mobile {
+    @media (max-width: $breakpoint-mobile) {
+      display: none !important;
+    }
+  }
+}
+
+@mixin show-on($breakpoint) {
+  display: none;
+
+  @if $breakpoint == desktop {
+    @media (max-width: $breakpoint-desktop) {
+      display: block !important;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $breakpoint-tablet) {
+      display: block !important;
+    }
+  } @else if $breakpoint == mobile {
+    @media (max-width: $breakpoint-mobile) {
+      display: block !important;
+    }
+  }
+}
+
+@mixin slider-responsive {
+  @media (max-width: 822px) {
+    .swiper {
+      height: 300px;
+    }
+
+    margin-top: 24px;
+    margin-bottom: 80px;
+
+    .slider-descrip {
+      bottom: 30px;
+      left: 24px;
+      right: 24px;
+      max-width: none;
+      gap: 8px;
+    }
+
+    .slider-title {
+      font-size: 30px;
+    }
+
+    .slider-text {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    :deep(.swiper-pagination),
+    :deep(.swiper-button-next),
+    :deep(.swiper-button-prev) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 370px) {
+    border-radius: 0;
+
+    .swiper {
+      border-radius: 0;
+      height: 220px;
+    }
+
+    .slider-descrip {
+      bottom: 15px;
+      left: 16px;
+      right: 16px;
+      padding: 0;
+      gap: 6px;
+    }
+
+    .slider-title {
+      font-size: 20px;
+    }
+
+    .slider-text {
+      font-size: 12px;
+    }
+  }
+}
+@mixin text-base($size, $color: #000) {
+  font-family: $font-main;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin accent-title($size) {
+  font-family: $font-accent;
+  font-weight: 700;
+  font-size: $size;
+  line-height: 1.2;
+}
+
+@mixin card($bg: #f5f6f3, $radius: 15px, $padding: 24px) {
+  background-color: $bg;
+  border-radius: $radius;
+  padding: $padding;
+  box-sizing: border-box;
+}
+
+@mixin responsive-font($base, $mobile) {
+  font-size: $base;
+
+  @include mobile {
+    font-size: $mobile;
+  }
+}
+

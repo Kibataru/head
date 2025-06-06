@@ -10,9 +10,11 @@
       <SwiperSlide v-for="(slide, index) in slides" :key="index">
         <div class="slider-content">
           <picture class="slider-image-wrapper">
-            <source
-              :srcset="`${slide.imageLandscape.x2} 2x, ${slide.imageLandscape.x1}`"
-              media="(min-width: 768px)"
+            <source :srcset="`${slide.imageLandscape.x2} 2x, ${slide.imageLandscape.x1}`"
+            media="(min-width: 768px)"
+            />
+            <source :srcset="`${slide.imagePortrait.x2} 2x, ${slide.imagePortrait.x1}`"
+            media="(max-width: 767px)"
             />
             <img :src="slide.imagePortrait.x1" :alt="slide.title" class="slider-image" />
           </picture>
@@ -115,7 +117,7 @@ const slides = [
   }
 
   .slider-title {
-    font-family: 'Monserrat', sans-serif;
+    font-family: $font-accent;
     font-weight: 700;
     font-size: 46px;
     line-height: 120%;
@@ -123,7 +125,7 @@ const slides = [
   }
 
   .slider-text {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-main;
     font-size: 16px;
     margin: 0;
   }
@@ -164,61 +166,7 @@ const slides = [
     right: 20px;
   }
 
-  @media (max-width: 700px) {
-    :deep(.swiper-pagination),
-    :deep(.swiper-button-next),
-    :deep(.swiper-button-prev) {
-      display: none;
-    }
-  }
-
-  @media (max-width: 822px) {
-    .swiper {
-      height: 300px;
-    }
-
-    margin-top: 24px;
-    margin-bottom: 80px;
-
-    .slider-descrip {
-      bottom: 30px;
-      left: 24px;
-      right: 24px;
-      max-width: none;
-      gap: 8px;
-    }
-
-    .slider-title {
-      font-size: 30px;
-    }
-
-    .slider-text {
-      font-size: 16px;
-    }
-  }
-
-  @media (max-width: 370px) {
-    border-radius: 0;
-    .swiper {
-      border-radius: 0;
-      height: 220px;
-    }
-
-    .slider-descrip {
-      bottom: 15px;
-      left: 16px;
-      right: 16px;
-      padding: 0;
-      gap: 6px;
-    }
-
-    .slider-title {
-      font-size: 20px;
-    }
-
-    .slider-text {
-      font-size: 12px;
-    }
-  }
+  @include slider-responsive;
 }
+
 </style>

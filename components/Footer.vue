@@ -1,31 +1,33 @@
 <template>
   <footer class="footer">
     <div class="footer-top">
-      <img class="logo" src="@/assets/images/Frame.png">
-      
-      <div class="links">
+      <div class="footer-col logo-section">
+        <img class="logo" src="@/assets/images/Frame.png"/>
+      </div>
+      <div class="footer-col links">
         <NuxtLink to="/projects">Реализованные проекты</NuxtLink>
         <NuxtLink to="/news">Новости</NuxtLink>
         <NuxtLink to="/contacts">Контакты</NuxtLink>
       </div>
-      
-      <div class="contacts">
+      <div class="footer-col contacts">
         <div class="contact">
-          <img src="@/assets/images/telephone.png" class="icon">
+          <img src="@/assets/images/telephone.png" class="icon" />
           <a>+7 (900) 900-90-90</a>
         </div>
         <div class="contact">
-          <img src="@/assets/images/email.png" class="icon">
+          <img src="@/assets/images/email.png" class="icon" />
           <a>info@gmail.com</a>
         </div>
         <div class="contact">
-          <img src="@/assets/images/place.png" class="icon">
-          <a>г. Владивосток<br>ул. Выселковая 49, стр. 3</a>
+          <img src="@/assets/images/place.png" class="icon" />
+          <a>г. Владивосток<br />ул. Выселковая 49, стр. 3</a>
         </div>
       </div>
-        <div class="but"><Button /></div>
+      <div class="footer-col but">
+        <Button />
+      </div>
     </div>
-    
+
     <div class="footer-bottom">
       <p>© Загдом, 2021</p>
       <div class="legal">
@@ -36,54 +38,110 @@
   </footer>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .footer {
-  background: #254741;
+  background: $color-bg-dark;
   color: white;
-  padding: 5%;
-  grid-row: 3;
-  font-family: 'Open Sans', sans-serif;
+  padding: 40px 5%;
+  font-family: $font-main;
+  grid-row: 7;
 }
-
 
 .footer-top {
   display: grid;
   grid-template-areas:
-    "logo links contacts";
-  grid-template-columns: auto 1fr 1fr auto;
-  gap: 30px;
+    "logo-section gap links contacts but";
+  grid-template-columns: auto 154px 1fr 1fr auto;
+  align-items: start;
   padding-bottom: 40px;
+
+  @include tablet {
+    grid-template-areas:
+      "logo-section"
+      "links"
+      "contacts"
+      "but";
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @include mobile {
+    gap: 15px;
+  }
 }
 
-.logo {
-  grid-area: logo;
-  height: 40px;
-  width: auto;
-  max-width: 230px;
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  a, p {
+    font-family: $font-main;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+
+  }
+}
+
+.logo-section {
+  grid-area: logo-section;
+
+  .logo {
+    height: 100%;
+    width: auto;
+    max-width: 230px;
+    min-width: 180px;
+  }
+}
+
+.gap-column {
+  grid-area: gap;
+
+  @include tablet {
+    display: none;
+  }
 }
 
 .links {
   grid-area: links;
-  display: flex;
-  flex-direction: column;
   gap: 24px;
-  min-width: 200px;
 }
 
 .contacts {
   grid-area: contacts;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Monserrat', sans-serif;
+  font-family: $font-accent;
   font-size: 14px;
   gap: 24px;
+dis  
+
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    display: flex;
+
+    .icon {
+      height: 20px;
+      width: 20px;
+      flex-shrink: 0;
+    }
+
+  }
 }
 
+.but {
+  grid-area: but;
+  justify-content: flex-end;
+  align-items: flex-start;
 
-.contacts .contact {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  @include tablet {
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
 }
 
 .footer-bottom {
@@ -92,57 +150,27 @@
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  opacity: 60%;  
+
+  @include tablet {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .legal {
   display: flex;
-  gap: 180px;
+  gap: 210px;
+  margin-right: 400px;
   flex-wrap: wrap;
-}
 
-
-@media (max-width: 1024px) {
-  .footer-top {
-    grid-template-areas:
-      "logo"
-      "links"
-      "contacts";
-    grid-template-columns: 1fr;
-  }
-
-  .links, .contacts {
-    min-width: auto;
-  }
-
-
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-
-  }
-
-  .legal {
+  @include tablet {
     gap: 20px;
     flex-direction: column;
     align-items: flex-start;
-
   }
-}
 
-@media (max-width: 768px) {
-  .footer {
-    grid-template-areas:
-      "logo"
-      "links"
-      "contacts";
-    grid-template-columns: 1fr;
-  }
-  .legal {
+  @include mobile {
     gap: 10px;
-  }
-  .legal a {
-    text-align: left;
   }
 }
 </style>

@@ -38,7 +38,7 @@ const props = defineProps({
 const emit = defineEmits(['close']);
 
 const closeDrawer = () => {
-  document.body.style.overflow = '';
+  document.body.style.overflow = 'auto';
   emit('close');
 };
 
@@ -50,13 +50,13 @@ watch(() => props.isOpen, (val) => {
   if (val) {
     document.body.style.overflow = 'hidden';
   } else {
-    document.body.style.overflow = '';
+    document.body.style.overflow = 'auto';
   }
 });
 </script>
 
 
-<style>
+<style lang="scss" scoped>
 .drawer-overlay {
   position: fixed;
   inset: 0;
@@ -97,7 +97,7 @@ watch(() => props.isOpen, (val) => {
   color: white;
   text-decoration: none;
   font-size: 18px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-main;
 }
 
 .drawer-contacts {
@@ -106,7 +106,7 @@ watch(() => props.isOpen, (val) => {
   gap: 24px;
   margin-top: auto; 
   padding-top: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: $font-accent;
 }
 
 .drawer-contact {
